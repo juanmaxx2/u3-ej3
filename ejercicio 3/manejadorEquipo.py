@@ -18,7 +18,7 @@ class ManejadorEquipo:
         self.__Equipo[self.__Cantidad]=unEquipo
         self.__Cantidad+=1
 
-    def Inicar(self):
+    def Iniciar(self):
         archivo=open('equipos.csv')
         reader=csv.reader(archivo,delimiter=';')
         bandera=True
@@ -26,6 +26,19 @@ class ManejadorEquipo:
             if bandera:
                 bandera=False
             else:
-                unEquipo=Equipo(fila[0],fila[1])
+                unEquipo=Equipo(fila[0],fila[1],fila[3])
                 self.AgregarEquipo(unEquipo)
         archivo.close()
+
+    def BuscarEquipo(self,unEquipo):
+        i=0
+        ret=None
+        while unEquipo!=self.__Equipo[i].getNombre():
+            i+=1
+        if unEquipo==self.__Equipo[i].getNombre():
+            ret=i
+        else: ret=-1
+        return ret
+    
+    def getLista(self):
+        return self.__Equipo

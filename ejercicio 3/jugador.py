@@ -11,3 +11,8 @@ class Jugador:
         self.__Ciudad=Ciudad
         self.__Pais=Pais
         self.__FechaNacimiento=FechaNacimiento
+    
+    def getNombre(self):
+        return self.__Nombre
+    def getDNI(self):
+        return self.__DNI
